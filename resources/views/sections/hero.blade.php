@@ -6,20 +6,43 @@
         </p>
 
         <h1 class="h-display text-ink dark:text-nightInk max-w-3xl">
-          Md Tanzid Haque.<span class="caret text-primary"></span>
+           {{ $profile->name }}.<span class="caret text-primary"></span>
         </h1>
 
         <div class="mt-5 grid grid-cols-12 gap-6">
           <div
             class="col-span-12 md:col-span-7 text-body dark:text-nightBody text-[15px] max-w-2xl"
           >
-            <p data-bind="profile.summary"></p>
+            <p>{{ $profile->summary }}</p>
           </div>
           <ul
             class="col-span-12 md:col-span-5 grid grid-cols-2 gap-y-4 self-end"
             id="hero-meta"
           >
-            <!-- contact rows injected -->
+            <li>
+              <span class="text-mute dark:text-nightMute text-[13px]"><span class="text-primary">[~]</span> role</span>
+              <p class="text-ink dark:text-nightInk text-[14px]">{{ $profile->title }}</p>
+            </li>
+            <li>
+              <span class="text-mute dark:text-nightMute text-[13px]"><span class="text-primary">[~]</span> location</span>
+              <p class="text-ink dark:text-nightInk text-[14px]">{{ $profile->location }}</p>
+            </li>
+            <li>
+              <span class="text-mute dark:text-nightMute text-[13px]"><span class="text-primary">[~]</span> email</span>
+              <p class="text-ink dark:text-nightInk text-[14px]">
+                <a href="mailto:{{ $profile->email }}" class="ulink">
+                  {{ $profile->email }}
+                </a>
+              </p>
+            </li>
+            <li>
+              <span class="text-mute dark:text-nightMute text-[13px]"><span class="text-primary">[~]</span> github</span>
+              <p class="text-ink dark:text-nightInk text-[14px]">
+                <a href="{{ $profile->github }}" target="_blank" rel="noopener" class="ulink">
+                  {{ $profile->github }}
+                </a>
+              </p>
+            </li>
           </ul>
         </div>
 
@@ -45,7 +68,7 @@
             <span
               class="__cf_email__"
               data-cfemail="4b3f2a2531222f780b2c262a222765282426"
-              >[email&#160;protected]</span
+              > {{ $profile->email }}</span
             >
           </a>
         </div>
