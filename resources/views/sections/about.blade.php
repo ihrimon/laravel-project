@@ -7,7 +7,19 @@
         <div class="border-t rule mt-2"></div>
 
         <div
-          class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(15,0,0,0.12)] dark:bg-[rgba(240,232,214,0.14)]"
-          id="stats"
-        ></div>
+    class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(15,0,0,0.12)] dark:bg-[rgba(240,232,214,0.14)]"
+    id="stats"
+>
+    @foreach ($stats as $stat)
+        <div class="bg-canvas dark:bg-nightBg p-5 themed">
+            <div class="text-[36px] md:text-[44px] font-bold leading-none text-primary">
+                {{ $stat->value }}
+            </div>
+
+            <div class="mt-3 text-[13px] text-mute dark:text-nightMute leading-snug">
+                {{ $stat->label }}
+            </div>
+        </div>
+    @endforeach
+</div>
       </section>
