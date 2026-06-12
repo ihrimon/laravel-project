@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Profile;
+use App\Http\Controllers\CategoryController;
 
-Route::get('/', function () {
-    $profile = Profile::first();
-    return view('pages.home', compact('profile'));
-});
+Route::get('/', fn() => redirect()->route('posts.index'));
+
+Route::resource('/posts', PostController::class);
+Route::resource('/categories', CategoryController::class);
